@@ -19,6 +19,7 @@ SFML_Widget::SFML_Widget(QWidget *parent) : QWidget(parent)
 	frameTimer.setInterval(60);
 
 	resize(QSize(800,640));
+	//slet denne kommentar
 }
 
 SFML_Widget::SFML_Widget(QWidget *Parent, const QPoint &Position, const QSize &Size, unsigned int FrameTime)
