@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 
 LIBS += -L"/home/pi/SFML-master-build/lib" -L /usr/X11R6/lib -lX11
-=======
+
 LIBS += -L"/home/gonyf/.SFML-master/lib"
 
 
