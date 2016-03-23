@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #include <qtextstream.h>
+=======
+>>>>>>> 8e9d379af22964e4d14f82db5ade09ac84c90df2
 #include "mainwindow.h"
 #include <QApplication>
 //#include <SFML/Graphics.hpp>

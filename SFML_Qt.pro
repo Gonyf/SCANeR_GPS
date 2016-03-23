@@ -8,13 +8,20 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+
 LIBS += -L"/home/pi/SFML-master-build/lib" -L /usr/X11R6/lib -lX11
+=======
+LIBS += -L"/home/gonyf/.SFML-master/lib"
+
 
 CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
 
 INCLUDEPATH += "/home/pi/.SFML-master/include"
 DEPENDPATH += "/home/pi/.SFML-master/include"
+
+INCLUDEPATH += "/home/gonyf/.SFML-master/include"
+DEPENDPATH += "/home/gonyf/.SFML-master/include"
 
 TARGET = SFML_Qt
 TEMPLATE = app

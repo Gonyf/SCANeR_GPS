@@ -1,8 +1,9 @@
 #include <qtextstream.h>
+
 #include "sfml_widget.h"
 #ifdef Q_WS_X11
-	#include <Qt/qx11info_x11.h>
-	#include <X11/Xlib.h>
+    #include <Qt/qx11info_x11.h>
+    #include <X11/Xlib.h>
 #endif
 #include <QDebug>
 
@@ -20,6 +21,8 @@ SFML_Widget::SFML_Widget(QWidget *parent) : QWidget(parent)
 	frameTimer.setInterval(60);
 
 	resize(QSize(800,640));
+
+	//slet denne kommentar
 }
 
 SFML_Widget::SFML_Widget(QWidget *Parent, const QPoint &Position, const QSize &Size, unsigned int FrameTime)
