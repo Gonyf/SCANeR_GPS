@@ -25,8 +25,8 @@ void GPS_Canvas::OnInit(){
 
 	// initialize the vertex array
 	road.push_back(sf::Vertex(sf::Vector2f(50,50), sf::Color::Red));
-	road.push_back(sf::Vertex(sf::Vector2f(50,500), sf::Color::Red));
-	road.push_back(sf::Vertex(sf::Vector2f(500,50), sf::Color::Red));
+	road.push_back(sf::Vertex(sf::Vector2f(50,200), sf::Color::Red));
+	road.push_back(sf::Vertex(sf::Vector2f(200,50), sf::Color::Red));
 
 	road.push_back(sf::Vertex(sf::Vector2f(100,100), sf::Color::Red));
 
@@ -45,7 +45,7 @@ void GPS_Canvas::OnUpdate(){
 	//draw(&road[0], road.size(), sf::Triangles);
 
 	draw(roadCLA);
-	roadCLA.setOrigin(-200,-200);
+	//roadCLA.setOrigin(-200,-200);
 }
 
 void GPS_Canvas::moveMap2(){

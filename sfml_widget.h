@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <SFML/Graphics.hpp>
 #include <QTimer>
-class SFML_Widget : public QWidget, public sf::RenderWindow
+class SFML_Widget : public QWidget, public sf::RenderWindow, sf::Texture
 {
 	Q_OBJECT
 public:

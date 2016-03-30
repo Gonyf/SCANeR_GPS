@@ -20,7 +20,7 @@ SFML_Widget::SFML_Widget(QWidget *parent) : QWidget(parent)
 	// Setup the timer
 	frameTimer.setInterval(60);
 
-	resize(QSize(800,640));
+	resize(QSize(800,480));
 
 	//slet denne kommentar
 }

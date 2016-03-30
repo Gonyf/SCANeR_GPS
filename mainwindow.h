@@ -2,7 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "gps_canvas.h"
+#include <QStackedWidget>
+#include "gps_page.h"
+#include "mainmenu.h"
+#include "selectscenario.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,14 +20,23 @@ public:
 	~MainWindow();
 
 private slots:
-	void on_pushButton_clicked();
+	void exitSl();
+	void decreaseStackIndex();
+	void increaseStackIndex();
+	void gotoSelectScenarioPage();
+	void gotoGPSPage();
+
 
 signals:
-	void click();
+	void exitSig();
 
 private:
 	Ui::MainWindow *ui;
-	GPS_Canvas* canvas;
+	GPS_page *GPSPage;
+	MainMenu *mainMenu;
+	SelectScenario *selectScenario;
+
+	QStackedWidget *stack;
 };
 
 #endif // MAINWINDOW_H
