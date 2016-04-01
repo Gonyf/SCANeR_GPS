@@ -1,6 +1,10 @@
 #include "selectscenario.h"
 #include "ui_selectscenario.h"
 #include <qdebug.h>
+#include "testpage.h"
+#include <QPushButton>
+#include <QFrame>
+#include <QHBoxLayout>
 
 SelectScenario::SelectScenario(QWidget *parent) :
 	QWidget(parent),
@@ -8,7 +12,6 @@ SelectScenario::SelectScenario(QWidget *parent) :
 {
 	ui->setupUi(this);
 	vlay = new QVBoxLayout(this);
-
 	//implement a way to get number of scenarios from simulator computer
 	//but for now, have a fixed counter
 	numberOfScenarios = 5;
@@ -20,11 +23,9 @@ SelectScenario::SelectScenario(QWidget *parent) :
 		buttonVector[scenarioCounter]->setText(buttonName);
 		buttonVector[scenarioCounter]->setMinimumHeight(50);
 		vlay->addWidget(buttonVector[scenarioCounter]);
-
 		connect(buttonVector[scenarioCounter], SIGNAL( released() ),this, SLOT(buttonHandler() ) );
 	}
 	this->setLayout(vlay);
-	//this->setCentralWidget(wdg);
 }
 
 SelectScenario::~SelectScenario()

@@ -12,6 +12,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 LIBS += -L"/home/pi/SFML-master-build/lib" -L /usr/X11R6/lib -lX11
 
 LIBS += -L"/home/gonyf/.SFML-master/lib"
+arm{
+    LIBS += -L"/usr/lib/" -lVEN2
+}
+
 
 
 CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
@@ -30,11 +34,35 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     sfml_widget.cpp \
     gps_canvas.cpp \
-    road.cpp
+    road.cpp \
+    gps_page.cpp \
+    mainmenu.cpp \
+    selectscenario.cpp \
+    testpage.cpp
+arm{
+    SOURCES += vensend.cpp
+}
 
 HEADERS  += mainwindow.h \
     sfml_widget.h \
     gps_canvas.h \
-    road.h
+    road.h \
+    gps_page.h \
+    mainmenu.h \
+    selectscenario.h \
+    testpage.h
 
-FORMS    += mainwindow.ui
+arm{
+    HEADERS += vensend.h \
+    VEN/VEN1.h \
+    VEN/VEN2.h \
+    VEN/VEN2CommunicationSystem.h \
+    VEN/VEN2ReceptionFunctor.h
+}
+
+FORMS    += mainwindow.ui \
+    gps_page.ui \
+    page.ui \
+    mainmenu.ui \
+    selectscenario.ui \
+    testpage.ui

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="GPS_widget" native="true">
    <property name="geometry">
     <rect>
@@ -32,7 +35,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="button_Menu">
+  <widget class="QToolButton" name="button_Menu">
    <property name="geometry">
     <rect>
      <x>738</x>
@@ -43,9 +46,6 @@
    </property>
    <property name="text">
     <string>Menu</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
    </property>
   </widget>
  </widget>

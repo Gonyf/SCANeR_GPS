@@ -5,9 +5,13 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QPushButton>
 #include <QString>
 #include <vector>
+#include <QFrame>
+
+#include "testpage.h"
 
 
 namespace Ui {
@@ -33,8 +37,6 @@ private:
 	QWidget * wdg;
 	int numberOfScenarios;
 	std::vector <QPushButton*> buttonVector;
-	std::vector <int> slet;
-
 };
 
 #endif // SELECTSCENARIO_H
