@@ -44,6 +44,11 @@ private slots:
 signals:
     void back();
 	void quit_clicked();
+	void rotate10();
+	void scrollLeft();
+	void scrollRight();
+	void scrollUp();
+	void scrollDown();
 
 private:
     Ui::TestPage *ui;

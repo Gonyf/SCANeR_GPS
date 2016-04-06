@@ -35,6 +35,7 @@ void TestPage::on_pushButton_Back_clicked()
 void TestPage::on_pushButton_Launch_clicked()
 {
 	qDebug() << "Launch clicked";
+	emit scrollUp();
 	#ifdef __arm__
 		sender.sendDouble(0);
 	#endif
@@ -43,6 +44,7 @@ void TestPage::on_pushButton_Launch_clicked()
 void TestPage::on_pushButton_Play_clicked()
 {
 	qDebug() << "Play clicked";
+	emit scrollDown();
 	#ifdef __arm__
 		sender.sendDouble(1.0);
 	#endif
@@ -52,6 +54,7 @@ void TestPage::on_pushButton_Play_clicked()
 void TestPage::on_pushButton_Pause_clicked()
 {
 	qDebug() << "Pause clicked";
+	emit scrollLeft();
 	#ifdef __arm__
 		sender.sendDouble(2.0);
 	#endif
@@ -60,6 +63,7 @@ void TestPage::on_pushButton_Pause_clicked()
 void TestPage::on_pushButton_Stop_clicked()
 {
 	qDebug() << "Stop clicked";
+	emit scrollRight();
 	#ifdef __arm__
 		sender.sendDouble(3.0);
 	#endif
@@ -69,6 +73,7 @@ void TestPage::on_pushButton_Stop_clicked()
 void TestPage::on_pushButton_Crash_clicked()
 {
 	qDebug() << "Crash clicked";
+	emit rotate10();
 	#ifdef __arm__
 		sender.sendDouble(4.0);
 	#endif

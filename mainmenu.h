@@ -2,6 +2,7 @@
 #define MAINMENU_H
 
 #include <QWidget>
+#include <thread>
 //#include "page.h"
 
 namespace Ui {
@@ -24,6 +25,14 @@ signals:
 
 private:
 	Ui::MainMenu *ui;
+	int threadTest_INT_slet;
+	bool updated;
+
+	std::thread *testThreadSend;
+	std::thread *testThreadreceive;
+	bool stopThread;
+	void threadTest_slet();
+	void threadTest_slet_Receive();
 };
 
 #endif // MAINMENU_H

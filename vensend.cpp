@@ -13,5 +13,5 @@ void VENSend::sendDouble(double command){
     double dataOut[1] = {command};
     qDebug() << dataOut[0];
     VENMessageWrite(venCom, "SCANER_SCENARIO", "FROM_SCANER", VENTypeDouble, dataOut, 1);
-    //VENRelease(venCom);
+	VENRelease(venCom);
 }

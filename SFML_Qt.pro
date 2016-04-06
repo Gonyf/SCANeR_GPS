@@ -10,14 +10,19 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 
 LIBS += -L"/home/pi/SFML-master-build/lib" -L /usr/X11R6/lib -lX11
-
+linux-g++{
+    message("linux2")
+    message($$[QMAKE_SPEC])
+}
 LIBS += -L"/home/gonyf/.SFML-master/lib"
+
 arm{
+    message("arm")
     LIBS += -L"/usr/lib/" -lVEN2
 }
 
 
-
+CONFIG += c++11
 CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
 

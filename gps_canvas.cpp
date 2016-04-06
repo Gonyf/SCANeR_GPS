@@ -4,12 +4,12 @@
 GPS_Canvas::GPS_Canvas(QWidget* Parent, const QPoint& Position, const QSize& Size) :
 SFML_Widget(Parent, Position, Size)
 {
-
+	view.reset(sf::FloatRect(0, 0, 800, 480));
 }
 GPS_Canvas::GPS_Canvas(QWidget* Parent) :
 SFML_Widget(Parent)
 {
-
+	view.reset(sf::FloatRect(0, 0, 800, 480));
 }
 
 //GPS_Canvas::~GPS_Canvas(){}
@@ -43,7 +43,8 @@ void GPS_Canvas::OnUpdate(){
 
 	// Draw it
 	//draw(&road[0], road.size(), sf::Triangles);
-
+	//view.setRotation(90);
+	setView(view);
 	draw(roadCLA);
 	//roadCLA.setOrigin(-200,-200);
 }
@@ -51,6 +52,16 @@ void GPS_Canvas::OnUpdate(){
 void GPS_Canvas::moveMap2(){
 	roadCLA.rotate(15);
 	qDebug() << "CLACK!";
+}
 
+void GPS_Canvas::setViewRotation(float _angle){
+	view.setRotation(view.getRotation()+_angle);
+}
 
+void GPS_Canvas::setViewCenter(float _x, float _y){
+	view.setCenter(view.getCenter().x + _x, view.getCenter().y + _y);
+}
+
+void GPS_Canvas::setViewSize(float _x, float _y){
+	view.setSize(_x, _y);
 }
