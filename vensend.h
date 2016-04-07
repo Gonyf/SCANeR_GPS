@@ -2,7 +2,10 @@
 #define VENSEND_H
 #ifdef __arm__
 	#include "VEN/VEN2.h"
+#include <qdebug.h>
+#include "Defines_Structures.h"
 
+using namespace std;
 class VENSend
 {
 public:
@@ -10,6 +13,9 @@ public:
     ~VENSend();
 
     void sendDouble(double command);
+    position getPosition();
+    double getAngle();
+
 private:
 	VENCom* venCom;
 };

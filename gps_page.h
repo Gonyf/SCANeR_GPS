@@ -7,15 +7,13 @@
 #include <QVBoxLayout>
 #include <QFrame>
 #include <thread>
+#include "Defines_Structures.h"
+
+#include "vensend.h"
 
 #ifdef __arm__
 //#include "VENReceive"
 #endif
-
-struct position{
-	double x;
-	double y;
-};
 
 namespace Ui {
 class GPS_page;
@@ -64,6 +62,10 @@ private:
 	void getAngleOfCar();
 	position carPosition;
 	double carAngle;
+
+#ifdef __arm__
+    VENSend receiver;
+#endif
 };
 
 #endif // GPS_PAGE_H

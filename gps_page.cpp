@@ -80,14 +80,17 @@ void GPS_page::scrollRight(){
 void GPS_page::getPositionOfCar(){
 	while (!stopThread){
 	#ifdef __arm__
-		position = receiver.getPosition();
+        carPosition = receiver.getPosition();
+        GPS_canvas->setViewCenter(carPosition.x, carPosition.y);
 	#endif
+
 	}
 }
 void GPS_page::getAngleOfCar(){
 	while (!stopThread){
 		#ifdef __arm__
-			angle = receiver.getAngle();
+            carAngle = receiver.getAngle();
+            GPS_canvas->setViewRotation(carAngle);
 		#endif
 	}
 }
