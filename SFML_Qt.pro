@@ -43,7 +43,11 @@ SOURCES +=  main.cpp\
             Pages/mainmenu.cpp \
             Pages/mainwindow.cpp \
             Pages/selectscenario.cpp \
-            Pages/testpage.cpp
+            Pages/testpage.cpp \
+    RoadXMLParsing/CircleArc.cpp \
+    RoadXMLParsing/ClothoArcs.cpp \
+    RoadXMLParsing/Segment.cpp \
+    RoadXMLParsing/XYCurve.cpp
             #VEN/vensend.cpp
 arm{
     #SOURCES += vensend.cpp
@@ -56,7 +60,13 @@ HEADERS  += Graphics/gps_canvas.h \
             Pages/mainmenu.h \
             Pages/mainwindow.h \
             Pages/selectscenario.h \
-            Pages/testpage.h
+            Pages/testpage.h \
+            Defines_Structures_Functions.h \
+    RoadXMLParsing/CircleArc.h \
+    RoadXMLParsing/ClothoArcs.h \
+    RoadXMLParsing/rapidxml.hpp \
+    RoadXMLParsing/Segment.h \
+    RoadXMLParsing/XYCurve.h
 
 arm{
     #HEADERS +=  VEN/vensend.h \

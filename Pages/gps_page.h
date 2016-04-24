@@ -7,7 +7,7 @@
 #include <QVBoxLayout>
 #include <QFrame>
 #include <thread>
-#include "Defines_Structures.h"
+#include "Defines_Structures_Functions.h"
 
 
 #ifdef __arm__
