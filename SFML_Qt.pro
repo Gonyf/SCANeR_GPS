@@ -35,39 +35,40 @@ DEPENDPATH += "/home/gonyf/.SFML-master/include"
 TARGET = SFML_Qt
 TEMPLATE = app
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    sfml_widget.cpp \
-    gps_canvas.cpp \
-    road.cpp \
-    gps_page.cpp \
-    mainmenu.cpp \
-    selectscenario.cpp \
-    testpage.cpp
+SOURCES +=  main.cpp\
+            Graphics/gps_canvas.cpp \
+            Graphics/road.cpp \
+            Graphics/sfml_widget.cpp \
+            Pages/gps_page.cpp \
+            Pages/mainmenu.cpp \
+            Pages/mainwindow.cpp \
+            Pages/selectscenario.cpp \
+            Pages/testpage.cpp
+            #VEN/vensend.cpp
 arm{
-    SOURCES += vensend.cpp
+    #SOURCES += vensend.cpp
 }
 
-HEADERS  += mainwindow.h \
-    sfml_widget.h \
-    gps_canvas.h \
-    road.h \
-    gps_page.h \
-    mainmenu.h \
-    selectscenario.h \
-    testpage.h
+HEADERS  += Graphics/gps_canvas.h \
+            Graphics/road.h \
+            Graphics/sfml_widget.h \
+            Pages/gps_page.h \
+            Pages/mainmenu.h \
+            Pages/mainwindow.h \
+            Pages/selectscenario.h \
+            Pages/testpage.h
 
 arm{
-    HEADERS += vensend.h \
-    VEN/VEN1.h \
-    VEN/VEN2.h \
-    VEN/VEN2CommunicationSystem.h \
-    VEN/VEN2ReceptionFunctor.h
+    #HEADERS +=  VEN/vensend.h \
+     #           VEN/VEN1.h \
+      #          VEN/VEN2.h \
+       #         VEN/VEN2CommunicationSystem.h \
+        #        VEN/VEN2ReceptionFunctor.h
 }
 
-FORMS    += mainwindow.ui \
-    gps_page.ui \
-    page.ui \
-    mainmenu.ui \
-    selectscenario.ui \
-    testpage.ui
+FORMS    += page.ui \
+            Pages/gps_page.ui \
+            Pages/mainmenu.ui \
+            Pages/mainwindow.ui \
+            Pages/selectscenario.ui \
+            Pages/testpage.ui

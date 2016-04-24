@@ -1,5 +1,5 @@
 //#include <qtextstream.h>
-#include "mainwindow.h"
+#include "Pages/mainwindow.h"
 #include <QApplication>
 
 //#include <SFML/Graphics.hpp>

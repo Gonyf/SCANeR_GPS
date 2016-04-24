@@ -2,16 +2,16 @@
 #define GPS_PAGE_H
 
 #include <QWidget>
-#include "gps_canvas.h"
+#include "../Graphics/gps_canvas.h"
 #include "testpage.h"
 #include <QVBoxLayout>
 #include <QFrame>
 #include <thread>
 #include "Defines_Structures.h"
 
-#include "vensend.h"
 
 #ifdef __arm__
+#include "../VEN/vensend.h"
 //#include "VENReceive"
 #endif
 

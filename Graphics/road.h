@@ -9,6 +9,7 @@ public:
 	Road();
 	~Road(){}
 	//void virtual move(float,float){}
+	void AddSegment(float position);
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
