@@ -21,7 +21,7 @@ arm{
     LIBS += -L"/usr/lib/" -lVEN2
 }
 
-
+QMAKE_CXXFLAGS += -std=c++11
 CONFIG += c++11
 CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
@@ -47,7 +47,8 @@ SOURCES +=  main.cpp\
     RoadXMLParsing/CircleArc.cpp \
     RoadXMLParsing/ClothoArcs.cpp \
     RoadXMLParsing/Segment.cpp \
-    RoadXMLParsing/XYCurve.cpp
+    RoadXMLParsing/XYCurve.cpp \
+    roadxml2vertexarrays.cpp
             #VEN/vensend.cpp
 arm{
     #SOURCES += vensend.cpp
@@ -66,7 +67,8 @@ HEADERS  += Graphics/gps_canvas.h \
     RoadXMLParsing/ClothoArcs.h \
     RoadXMLParsing/rapidxml.hpp \
     RoadXMLParsing/Segment.h \
-    RoadXMLParsing/XYCurve.h
+    RoadXMLParsing/XYCurve.h \
+    roadxml2vertexarrays.h
 
 arm{
     #HEADERS +=  VEN/vensend.h \
@@ -82,3 +84,6 @@ FORMS    += page.ui \
             Pages/mainwindow.ui \
             Pages/selectscenario.ui \
             Pages/testpage.ui
+
+DISTFILES += \
+    RoadXMLParsing/Big_roundabout.rnd

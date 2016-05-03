@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
-
 	// Get stack widget
 	stack = centralWidget()->findChild<QStackedWidget *>("widgetStack");
 

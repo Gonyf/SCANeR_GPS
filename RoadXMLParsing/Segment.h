@@ -1,7 +1,7 @@
 #ifndef SEGMENT_H
 #define SEGMENT_H
 
-#include "defines_functions.h"
+#include "Defines_Structures_Functions.h"
 #include "rapidxml.hpp"
 
 using namespace rapidxml;

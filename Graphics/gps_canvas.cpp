@@ -4,12 +4,12 @@
 GPS_Canvas::GPS_Canvas(QWidget* Parent, const QPoint& Position, const QSize& Size) :
 SFML_Widget(Parent, Position, Size)
 {
-    view.reset(sf::FloatRect(0, 0, 8000, 4800));
+	view.reset(sf::FloatRect(0, 0, 800, 480));
 }
 GPS_Canvas::GPS_Canvas(QWidget* Parent) :
 SFML_Widget(Parent)
 {
-    view.reset(sf::FloatRect(0, 0, 8000, 4800));
+	view.reset(sf::FloatRect(0, 0, 800, 480));
 }
 
 //GPS_Canvas::~GPS_Canvas(){}

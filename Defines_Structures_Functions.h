@@ -7,19 +7,26 @@
 using namespace std;
 
 #define ASCII_CONVERTION 48
+#define ROAD_WIDTH		 10
+#define DELTA_ANGLE		 0.001
 
 enum ElementType { Segment_Enum, CircleArc_Enum, ClothoArc_Enum };
 
 
 struct position{
-    double x;
+	double x;
     double y;
+
+	position(double _x = 0, double _y = 0){
+		x = _x;
+		y = _y;
+	}
 };
 
 inline double convertStringToDouble(string _string){
     double result = 0;
     int divisor = 1; /// only divide the result if a comma is present;
-    for (int digit = _string.length() -1, iterations; digit >= 0; digit--){
+	for (int digit = _string.length() -1, iterations = 0; digit >= 0; digit--){
         int value = int(_string[digit] - ASCII_CONVERTION); /// start with the least significant digit
         if (value >= 0){ /// if value does not correspond to a comma
             result += value * pow(10,iterations); /// The value is added to the right position if no comma is present
@@ -37,6 +44,10 @@ inline double convertStringToDouble(string _string){
         }
     }
     return result / divisor;
+}
+
+template <typename T> int sign(T _value){
+	return (T(0) < _value) - (_value < T(0));
 }
 
 

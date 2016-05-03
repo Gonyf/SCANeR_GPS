@@ -40,7 +40,6 @@ XYCurve::XYCurve(rapidxml::xml_node<> *XYCurveNode){
         }
     }
 }
-
 XYCurve::~XYCurve() {   }
 
 /// ############## sets ##################
@@ -60,17 +59,17 @@ void XYCurve::setY(float _y){
 }
 
 /// ############ gets ####################
-float XYCurve::getDirection(){
+double XYCurve::getDirection(){
     checkInitialization();
     return direction;
 }
 
-float XYCurve::getX(){
+double XYCurve::getX(){
     checkInitialization();
     return x;
 }
 
-float XYCurve::getY(){
+double XYCurve::getY(){
     checkInitialization();
     return y;
 }

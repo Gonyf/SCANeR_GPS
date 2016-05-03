@@ -10,7 +10,7 @@
 #include "Segment.h"
 #include "ClothoArcs.h"
 #include "rapidxml.hpp"
-#include "defines_functions.h"
+#include "Defines_Structures_Functions.h"
 
 using namespace rapidxml;
 using namespace std;
@@ -28,9 +28,9 @@ class XYCurve
         void setX(float _x);
         void setY(float _y);
 
-        float getDirection();
-        float getX();
-        float getY();
+		double getDirection();
+		double getX();
+		double getY();
         vector<int> getSequence();
         Segment getNextSegment();
         CircleArc getNextCircleArc();
@@ -54,9 +54,9 @@ class XYCurve
         bool clothoArcsEmpty();
     protected:
     private:
-        float direction;
-        float x;
-        float y;
+		double direction;
+		double x;
+		double y;
 
         bool directionSet;
         bool xSet;
