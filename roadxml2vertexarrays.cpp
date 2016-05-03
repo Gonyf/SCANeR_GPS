@@ -83,31 +83,37 @@ pair <position, double> RoadXML2VertexArrays::circleArc2Vertices(position _start
 	double startDirectionFromCenter = _startDirection - 0.5 * M_PI * sign(radius);
 	double directionToNextPoint		= startDirectionFromCenter;
 	double totalAngleOfCircleArc	= _length/fabs(radius);
-	double currentAngleOfCircleArc	= 0.0;
-	bool firstPoint = true;
+	double currentAngleOfCircleArc	= 0.0; // this is used to break out of the while loop.
 	int pointOffset			= 0.5 * ROAD_WIDTH;
-	position nextPoint = calculateEndPointOfRoad(centerPoint, directionToNextPoint, fabs(radius) + pointOffset);
 
+	//calculate and push back the first point for both positive and negative offset
+	position nextPoint = calculateEndPointOfRoad(centerPoint, directionToNextPoint, fabs(radius) + pointOffset);
+	// the first point is added twice in order to avoid continuation from the last circle arc.
+	//(The last point is also added twice for the same reason)
+	circleArcVertices.push_back(nextPoint);
+	circleArcVertices.push_back(nextPoint);
+	pointOffset			*= -1;
+	nextPoint = calculateEndPointOfRoad(centerPoint, directionToNextPoint, fabs(radius) + pointOffset);
+	//circleArcVertices.push_back(nextPoint);
+	//circleArcVertices.push_back(nextPoint);
 	while (currentAngleOfCircleArc <= totalAngleOfCircleArc){
-		// the first point is added twice in order to avoid continuation from the last circle arc.
-		//(The last point is also added twice for the same reason)
-		if (firstPoint){
-			firstPoint = false;
-			circleArcVertices.push_back(nextPoint);
-		}
 		circleArcVertices.push_back(nextPoint);
 		pointOffset *= -1; // every other time we want the point on the inner circle and every other time we want the point on the outer circle.
 		directionToNextPoint += DELTA_ANGLE * sign(radius);
 		currentAngleOfCircleArc += DELTA_ANGLE;
 		nextPoint = calculateEndPointOfRoad(centerPoint, directionToNextPoint, fabs(radius) + pointOffset);
 	}
-	//push back the exact last two points
+	// calculate and push back the exact last point for both positive and negative offset
+	directionToNextPoint	 = startDirectionFromCenter + totalAngleOfCircleArc * sign(radius);
 	nextPoint = calculateEndPointOfRoad(centerPoint, directionToNextPoint, fabs(radius) + pointOffset);
-	nextPoint = calculateEndPointOfRoad(centerPoint, directionToNextPoint, fabs(radius) - pointOffset);
-	circleArcVertices.push_back(circleArcVertices[circleArcVertices.size()-1]);
+	circleArcVertices.push_back(nextPoint);
+	pointOffset			*= -1;
+	nextPoint = calculateEndPointOfRoad(centerPoint, directionToNextPoint, fabs(radius) + pointOffset);
+	// The last point is added twice, to avoid continuation of this circle arc when drawing the next
+	circleArcVertices.push_back(nextPoint);
+	circleArcVertices.push_back(nextPoint);
 
-	// calculate the current position and -direction and return them
-	directionToNextPoint		-= DELTA_ANGLE * sign(radius); // redo the last addition
+	// calculate the position and direction that the road should continue from and return them
 	double currentDirection		 = directionToNextPoint + 0.5 * M_PI * sign(radius);
 	position currentPosition	 = calculateEndPointOfRoad(centerPoint, directionToNextPoint, fabs(radius) );
 	pair <position, double> returnPair = make_pair(currentPosition, currentDirection);
@@ -138,3 +144,4 @@ position RoadXML2VertexArrays::calculateCenterOfCircle(position _startPosition, 
 	centerOfCircle = calculateEndPointOfRoad(_startPosition, directionToCenter, (_radius) );
 	return centerOfCircle;
 }
+
